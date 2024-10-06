@@ -1,0 +1,24 @@
+
+
+@layer app-base {
+
+  body {
+    @apply bg-slate-50 text-md;
+  }
+
+  *::-webkit-scrollbar {
+    width: .5rem;
+    height: .5rem;
+  }
+
+  *::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    @apply bg-transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    border-radius: 100vh;
+    @apply bg-gray-600/70 hover:bg-gray-600 dark:bg-gray-300/70 dark:hover:bg-gray-300;
+  }
+
+}

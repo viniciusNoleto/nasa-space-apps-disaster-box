@@ -1,0 +1,13 @@
+
+@layer tailwind-base {
+  @tailwind base;
+
+  .appearance-none::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}

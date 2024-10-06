@@ -1,0 +1,191 @@
+[
+  {
+    "id": 1,
+    "name": "Acre",
+    "uf": "AC",
+    "region": "Norte",
+    "frontiers": ["AM", "RO"]
+  },
+  {
+    "id": 2,
+    "name": "Alagoas",
+    "uf": "AL",
+    "region": "Nordeste",
+    "frontiers": ["PE", "BA", "SE"]
+  },
+  {
+    "id": 3,
+    "name": "Amapá",
+    "uf": "AP",
+    "region": "Norte",
+    "frontiers": ["PA"]
+  },
+  {
+    "id": 4,
+    "name": "Amazonas",
+    "uf": "AM",
+    "region": "Norte",
+    "frontiers": ["AC", "RR", "RO", "PA", "MT"]
+  },
+  {
+    "id": 5,
+    "name": "Bahia",
+    "uf": "BA",
+    "region": "Nordeste",
+    "frontiers": ["AL", "ES", "PE", "PI", "GO", "MG", "TO", "SE"]
+  },
+  {
+    "id": 6,
+    "name": "Ceará",
+    "uf": "CE",
+    "region": "Nordeste",
+    "frontiers": ["PI", "RN", "PB", "PE"]
+  },
+  {
+    "id": 7,
+    "name": "Distrito Federal",
+    "uf": "DF",
+    "region": "Centro-Oeste",
+    "frontiers": ["GO", "MG"]
+  },
+  {
+    "id": 8,
+    "name": "Espírito Santo",
+    "uf": "ES",
+    "region": "Sudeste",
+    "frontiers": ["MG", "BA", "RJ"]
+  },
+  {
+    "id": 9,
+    "name": "Goiás",
+    "uf": "GO",
+    "region": "Centro-Oeste",
+    "frontiers": ["DF", "MG", "BA", "MT", "TO", "MS"]
+  },
+  {
+    "id": 10,
+    "name": "Maranhão",
+    "uf": "MA",
+    "region": "Nordeste",
+    "frontiers": ["PI", "TO", "PA"]
+  },
+  {
+    "id": 11,
+    "name": "Mato Grosso",
+    "uf": "MT",
+    "region": "Centro-Oeste",
+    "frontiers": ["AM", "PA", "RO", "TO", "GO", "MS"]
+  },
+  {
+    "id": 12,
+    "name": "Mato Grosso do Sul",
+    "uf": "MS",
+    "region": "Centro-Oeste",
+    "frontiers": ["MT", "GO", "MG", "SP", "PR"]
+  },
+  {
+    "id": 13,
+    "name": "Minas Gerais",
+    "uf": "MG",
+    "region": "Sudeste",
+    "frontiers": ["SP", "RJ", "ES", "BA", "GO", "DF", "MS"]
+  },
+  {
+    "id": 14,
+    "name": "Pará",
+    "uf": "PA",
+    "region": "Norte",
+    "frontiers": ["AP", "AM", "MA", "TO", "MT", "RR"]
+  },
+  {
+    "id": 15,
+    "name": "Paraíba",
+    "uf": "PB",
+    "region": "Nordeste",
+    "frontiers": ["RN", "CE", "PE"]
+  },
+  {
+    "id": 16,
+    "name": "Paraná",
+    "uf": "PR",
+    "region": "Sul",
+    "frontiers": ["SP", "MS", "SC"]
+  },
+  {
+    "id": 17,
+    "name": "Pernambuco",
+    "uf": "PE",
+    "region": "Nordeste",
+    "frontiers": ["PB", "CE", "AL", "PI", "BA"]
+  },
+  {
+    "id": 18,
+    "name": "Piauí",
+    "uf": "PI",
+    "region": "Nordeste",
+    "frontiers": ["CE", "PE", "BA", "MA"]
+  },
+  {
+    "id": 19,
+    "name": "Rio de Janeiro",
+    "uf": "RJ",
+    "region": "Sudeste",
+    "frontiers": ["MG", "ES", "SP"]
+  },
+  {
+    "id": 20,
+    "name": "Rio Grande do Norte",
+    "uf": "RN",
+    "region": "Nordeste",
+    "frontiers": ["PB", "CE"]
+  },
+  {
+    "id": 21,
+    "name": "Rio Grande do Sul",
+    "uf": "RS",
+    "region": "Sul",
+    "frontiers": ["SC"]
+  },
+  {
+    "id": 22,
+    "name": "Rondônia",
+    "uf": "RO",
+    "region": "Norte",
+    "frontiers": ["AC", "AM", "MT"]
+  },
+  {
+    "id": 23,
+    "name": "Roraima",
+    "uf": "RR",
+    "region": "Norte",
+    "frontiers": ["AM", "PA"]
+  },
+  {
+    "id": 24,
+    "name": "Santa Catarina",
+    "uf": "SC",
+    "region": "Sul",
+    "frontiers": ["PR", "RS"]
+  },
+  {
+    "id": 25,
+    "name": "São Paulo",
+    "uf": "SP",
+    "region": "Sudeste",
+    "frontiers": ["MG", "RJ", "PR", "MS"]
+  },
+  {
+    "id": 26,
+    "name": "Sergipe",
+    "uf": "SE",
+    "region": "Nordeste",
+    "frontiers": ["AL", "BA"]
+  },
+  {
+    "id": 27,
+    "name": "Tocantins",
+    "uf": "TO",
+    "region": "Norte",
+    "frontiers": ["BA", "MA", "PA", "MT", "GO"]
+  }
+]
