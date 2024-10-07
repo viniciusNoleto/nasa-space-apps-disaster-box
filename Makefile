@@ -28,10 +28,10 @@ logs:
 	@docker logs -f $(a)
 
 logs-app:
-	@make logs a=vestimentor-web-app
+	@make logs a=nasa-space-apps-disaster-box-web-app
 
 logs-server:
-	@make logs a=vestimentor-web-server
+	@make logs a=nasa-space-apps-disaster-box-web-server
 
 a :=
 c :=
@@ -39,14 +39,14 @@ exec:
 	@docker compose -f $(DOCKERFILE) exec $(a) $(c)
 
 npm-prune:
-	@make exec a=vestimentor-web-app c="npm prune"
+	@make exec a=nasa-space-apps-disaster-box-web-app c="npm prune"
 
 npm-build:
-	@make exec a=vestimentor-web-app c="npm run build"
+	@make exec a=nasa-space-apps-disaster-box-web-app c="npm run build"
 
 b ?=
 npm-install:
-	@make exec a=vestimentor-web-app c="npm install $(b)"
+	@make exec a=nasa-space-apps-disaster-box-web-app c="npm install $(b)"
 
 update:
 	@make npm-install
@@ -59,7 +59,7 @@ watch ?=
 install:
 	@make build
 	@echo
-	@echo "Vestimentor Web fully installed!"
+	@echo "Nasa-space-apps-disaster-box Web fully installed!"
 	@echo
 ifdef up
 	@make up
