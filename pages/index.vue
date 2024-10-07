@@ -29,9 +29,7 @@
             >
               <Geometries.OlGeomPoint :coordinates="disaster.coordinates" />
               <Styles.OlStyle>
-                <Styles.OlStyleCircle :radius="disaster.radius">
-                  <Styles.OlStyleFill :color="disaster.color" />
-                </Styles.OlStyleCircle>
+                <Styles.OlStyleIcon :src="disaster.img" :scale=".5" />
               </Styles.OlStyle>
             </Map.OlFeature>
           </template>
@@ -46,39 +44,100 @@
       />
     </Map.OlMap>
 
-    <section class="grow flex flex-col py-4 px-4 gap-6 border-black/50">
-      <UtilsStepperHeader
-        v-model:actual="actual"
-        :headers="headers"
+    <section class="grow flex flex-col border-t border-t-black/50">
+      <section
+        v-if="momentums.length === 0"
+        class="flex flex-col gap-4"
       >
-        <template #add>
+        <section class="grid auto-cols-fr grid-flow-col gap-10 px-6 py-4">
           <div
-            class="text-white rounded-full flex items-center justify-center h-8 w-8 bg-primary-500 hover:bg-primary-600 shadow shadow-[white] hover:scale-105 cursor-pointer"
-            @click="addMomentum"
+            v-for="disaster in disasters"
+            :key="disaster.id"
+            class="flex flex-col gap-2"
           >
-            <Icon :name="GLOBAL_ICONS.plus" class="text-xl" />
-          </div>
-        </template>
-      </UtilsStepperHeader>
+            <div class="flex gap-4 items-center">
+              <input
+                v-model="selectedDisaster"
+                :id="disaster.id"
+                type="radio"
+                class="scale-150"
+                :value="disaster"
+              >
 
-      <section v-if="actual === 0" class="flex flex-wrap *:grow gap-4 px-5">
-        <div
-          v-for="disaster in disasters"
-          :key="disaster.id"
-          class="font-bold border border-white/10 hover:border-white/20 rounded-full p-2 text-center cursor-pointer text-nowrap"
-          @click="selectedDisaster = disaster"
-        >
-          {{ disaster.name }}
+              <label :for="disaster.id" class="text-3xl font-medium">
+                {{ disaster.name }}
+              </label>
+
+              <NuxtImg :src="`${disaster.slug}.png`" width="25" height="25" />
+            </div>
+
+            <p>
+              {{ disaster.description.body }}
+            </p>
+          </div>
+        </section>
+
+        <div class="flex items-center justify-center">
+          <button
+            @click="addMomentum"
+            class="px-6 py-2 bg-blue-500 text-white font-bold rounded-md"
+          >
+            Iniciar Simulação
+          </button>
         </div>
       </section>
 
-      <section v-else-if="selectedUF">
-        <pre>
-          {{ _get(momentums, `${actual}.${selectedUF}`) }}
-        </pre>
-      </section>
+      <section
+        v-else
+        class="flex flex-col gap-4"
+      >
+        <section class="bg-white shadow-lg rounded-full px-6 py-4 flex items-center gap-6 -translate-y-1/2 mx-auto">
+          <Icon
+            :name="GLOBAL_ICONS.arrow_left"
+            class="text-4xl"
+            :class="actual === 0 ? 'text-gray-300 pointer-events-none' : 'text-blue-500 cursor-pointer'"
+            @click="previousMomentum"
+          />
 
-      {{selectedUF}}
+          <div class="flex items-center gap-4 text-lg">
+            <span
+              v-for="momentum in visibleMomentums"
+              :key="momentum"
+              class="cursor-pointer hover:underline decoration-2"
+              :class="actual === momentum - 1 ? 'text-blue-500 decoration-primary-500 font-bold' : 'text-gray-300'"
+              @click="actual = momentum - 1"
+            >
+              {{ momentum }}
+            </span>
+          </div>
+
+          <Icon
+            :name="GLOBAL_ICONS.arrow_right"
+            class="text-4xl text-blue-500 cursor-pointer"
+            @click="nextMomentum"
+          />
+        </section>
+
+        <section class="grid auto-cols-fr grid-flow-col gap-10 px-6 py-4 -translate-y-12">
+          <div
+            v-for="disaster in disasters"
+            :key="disaster.id"
+            class="flex flex-col gap-2"
+          >
+            <div class="flex gap-4 items-center">
+              <NuxtImg :src="`${disaster.slug}.png`" width="30" height="30" />
+
+              <label :for="disaster.id" class="text-lg font-medium">
+                {{ disaster.name }}
+              </label>
+            </div>
+
+            <p>
+              {{ disaster.predict_description.body }}
+            </p>
+          </div>
+        </section>
+      </section>
     </section>
   </section>
 </template>
@@ -136,9 +195,35 @@
   const selectedDisaster = ref();
 
   // Steps
-  const headers = ref(['Momento do Desastre']);
-  const momentums = ref([undefined]);
+  const momentums = ref([]);
   const actual = ref(0);
+
+  function previousMomentum() {
+    if (actual.value > 0) actual.value--;
+  }
+
+  function nextMomentum() {
+    if (actual.value < momentums.value.length - 1) actual.value++;
+    else addMomentum();
+  }
+
+  const visibleMomentums = computed(() => {
+    const half = Math.floor(5 / 2);
+    let start = actual.value - half;
+    let end = actual.value + half;
+
+    // Ajuste os limites caso eles ultrapassem o começo ou o fim do array
+    if (start < 1) {
+      start = 1;
+      end = Math.min(5, momentums.value.length);
+    } else if (end > momentums.value.length) {
+      end = momentums.value.length;
+      start = Math.max(1, momentums.value.length - 5 + 1);
+    }
+
+    // Crie um array com os números dentro do intervalo
+    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+  });
 
   function shouldCreateNewDisaster(possibility) {
     const chance = Math.random() * 100; // Gera um número aleatório entre 0 e 100
@@ -155,7 +240,7 @@
     } else {
 
       // Cria um novo momentum baseado no momento anterior
-      const actualMomentum = momentums.value[actual.value];
+      const actualMomentum = momentums.value[momentums.value.length - 1];
       const newMomentum = _cloneDeep(actualMomentum); // Copia o momentum anterior
 
       Object.keys(actualMomentum).forEach(uf => {
@@ -192,26 +277,7 @@
       momentums.value.push(newMomentum);
     }
 
-    headers.value.push('Momento ' + (actual.value + 1));
-    actual.value++;
-  }
-
-  const disasterColors = {
-    1: 'red',
-    2: 'brown',
-    3: 'black',
-    4: 'yellow',
-    5: 'blue',
-    6: 'purple',
-    7: 'orange'
-  };
-
-  function countQtt(sourceObj, qttObj, id) {
-    if (sourceObj[id] == undefined) {
-      qttObj[id] = 0;
-    } else qttObj[id]++;
-
-    return qttObj[id];
+    actual.value = momentums.value.length - 1;
   }
 
   const momentumPoints = computed(() => {
@@ -219,14 +285,12 @@
       const coordinates = centroid(br_states_data.features.find(feature => feature.properties.UF_05 === uf)).geometry.coordinates;
 
       const momentumsDisaster = {};
-      const momentumsDisasterQtt = {};
 
       const disaster = momentums.value[actual.value][uf];
       if (disaster) {
         momentumsDisaster[disaster.id] = {
-          color: disasterColors[disaster.id],
           coordinates: [coordinates[0], coordinates[1]],
-          radius: 5 + (countQtt(momentumsDisaster, momentumsDisasterQtt, disaster.id) * 0.1)
+          img: `/_ipx/_/${disaster.slug}.png`
         };
       }
 
@@ -239,10 +303,18 @@
 
   function getStateSyle(feature){
     return new Style({
-      stroke: new Stroke({
-        color: selectedUF.value == feature.values_.UF_05 ? 'blue' : 'green',
-        width: selectedUF.value == feature.values_.UF_05 ? 3 : 1
-      })
+      stroke: new Stroke(
+        selectedUF.value == feature.values_.UF_05 ?
+        {
+          color: 'blue',
+          width: 3
+        }
+          :
+        {
+          color: 'green',
+          width: 1
+        }
+      )
     });
   }
 

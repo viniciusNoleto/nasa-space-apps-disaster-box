@@ -2,8 +2,6 @@
 
 import { PRIMARY_COLOR_VARIATIONS } from './shared/packages/constants/colors';
 
-// import Color from 'color';
-
 export default {
   darkMode: 'class',
   content: [

@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Incêncidos florestais",
+    "slug": "forest_fire",
     "description": {
       "title": "Incêndios florestais",
       "body": "O incêndio florestal é caracterizado pelo fogo sem controle que avança sobre qualquer forma de vegetação, podendo ser iniciado pelo homem (intencional ou acidental) ou por fonte natural (raio)",
@@ -10,107 +11,86 @@
         "https://www.gov.br/dnit/pt-br/assuntos/portais-tematicos/br-319-am-ro/noticias/incendios-florestais-impactos-no-meio-ambiente-e-na-fauna"
       ]
     },
+    "predict_description": {
+      "title": "O que pode ocasionar um incêndio florestal",
+      "body": "Os incêndios florestais podem ser causados tanto por fatores naturais quanto antrópicos. Entre as causas naturais, destacam-se descargas elétricas (raios), que, ao atingir vegetação seca, podem provocar incêndios, embora geralmente sejam acompanhadas de chuvas que ajudam no controle. Já as causas humanas incluem descarte irregular de bitucas de cigarro, fagulhas de veículos e maquinários, queimadas descontroladas para limpeza de terrenos, fogueiras mal apagadas em acampamentos e incêndios provocados intencionalmente. Esses fatores contribuem para a propagação descontrolada do fogo, causando graves impactos ambientais.",
+      "links": [
+        "https://www.ibama.gov.br/sophia/cnia/livros/investigacaodeincendiosflorestaisdigital.pdf",
+        "https://brasilescola.uol.com.br/geografia/incendios-florestais.htm"
+      ]
+    },
     "post_possible": {
       "id": 2,
       "possibility": 80
     },
-    "spread_possibility": [
-      1,
-      3
-    ]
+    "spread_possibility": [1, 3]
   },
   {
     "id": 2,
     "name": "Secas e estiagens",
+    "slug": "drought",
     "description": {
       "title": "Períodos de seca",
-      "body": "Períodos prolongados de seca que afetam o abastecimento de água e a produção agrícola.",
-      "links": []
+      "body": "Secas e estiagens são períodos prolongados sem chuvas que afetam diretamente o abastecimento de água, a agricultura, a pecuária e a vida das populações. Essas condições podem ser agravadas por ações humanas, como o desmatamento e as mudanças climáticas, e impactam ecossistemas, a economia e o bem-estar social.",
+      "links": [
+        "https://www.sgb.gov.br/sace/index_secas_estiagens.php",
+        "https://atlassocioeconomico.rs.gov.br/estiagens-e-secas"
+      ]
     },
-    "post_possible": {
-      "id": 3,
-      "possibility": 10
+    "predict_description": {
+      "title": "Causas e impactos das secas e estiagens",
+      "body": "A seca e a estiagem no Brasil resultam de fatores naturais e humanos, como mudanças climáticas provocadas pela emissão de gases de efeito estufa, desmatamento que reduz a retenção de umidade, uso ilegal do fogo, e fenômenos como o El Niño. A localização geográfica de algumas regiões, como o Nordeste, também contribui. Esses fenômenos geram impactos como falta de água, prejuízos na agricultura e pecuária, migrações, incêndios florestais, degradação da qualidade da água, problemas de saúde, conflitos e o aumento da pobreza.",
+      "links": [
+        "https://www.greenpeace.org/brasil/blog/seca-na-amazonia-a-outra-face-dos-eventos-climaticos-extremos/?appeal=21057&utm_source=google&utm_medium=paid&utm_campaign=clima&utm_content=aq_20231004_grants&utm_term=secas%20extremas&utm_campaign=&utm_source=adwords&utm_medium=ppc&hsa_acc=7235609613&hsa_cam=19664562138&hsa_grp=157161332631&hsa_ad=676161598721&hsa_src=g&hsa_tgt=kwd-2119362779967&hsa_kw=secas%20extremas&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjw6oi4BhD1ARIsAL6pox1Le07PUWKkCbGk5p3j-D97UnvdcCPrKPPudATGWro5pvdtFsAUA5caAtcVEALw_wcB",
+        "https://grupohidrica.com.br/seca-estiagem-e-economia-de-agua/#:~:text=A%20a%C3%A7%C3%A3o%20humana%20sobre%20o,forma%C3%A7%C3%A3o%20e%20continuidade%20da%20seca."
+      ]
     },
-    "spread_possibility": [
-      0,
-      0
-    ]
+    "spread_possibility": [0, 0]
   },
   {
     "id": 3,
-    "name": "Deslizamentos",
+    "name": "Alagamentos",
+    "slug": "flood",
     "description": {
-      "title": "Movimento rápido de terra",
-      "body": "Movimento rápido de terra ou rochas em encostas, geralmente causado por chuvas intensas, saturação do solo ou atividades humanas.",
-      "links": []
+      "title": "Acúmulo de água",
+      "body": "Alagamentos ocorrem quando há acúmulo excessivo de água em áreas urbanas ou rurais, geralmente em razão de drenagem inadequada ou chuvas intensas. Esse fenômeno pode causar danos a propriedades, interrupção do transporte e aumento de riscos à saúde pública, como a proliferação de doenças.",
+      "links": [
+        "https://www.ecycle.com.br/alagamento/"
+      ]
     },
-    "spread_possibility": [
-      0,
-      0
-    ]
+    "predict_description": {
+      "title": "Causas e riscos dos alagamentos",
+      "body": "Os alagamentos ocorrem quando há acúmulo excessivo de água em áreas urbanas ou rurais, geralmente devido à drenagem inadequada. Esse fenômeno é comum após chuvas intensas e pode causar danos a edificações, interrupções no tráfego e riscos à saúde pública.",
+      "links": [
+        "https://www.aguasustentavel.org.br/conteudo/blog/210-enchentes-no-brasil-causas-consequencias-como-prevenir"
+      ]
+    },
+    "post_possible": {
+      "id": 4,
+      "possibility": 100
+    },
+    "spread_possibility": [1, 1]
   },
   {
     "id": 4,
-    "name": "Poluição do Ar",
+    "name": "Perda de biodiversidade",
+    "slug": "biodiversity_loss",
     "description": {
-      "title": "Presença de substâncias nocivas",
-      "body": "Presença de substâncias nocivas na atmosfera, resultantes de atividades industriais, veículos, queimadas e outras fontes, que comprometem a qualidade do ar.",
-      "links": []
+      "title": "Perda de biodiversidade",
+      "body": "A perda de biodiversidade é a diminuição da variedade de seres vivos em um ecossistema, causada por fatores como desmatamento, poluição, mudanças climáticas e degradação do solo. Esse fenômeno compromete a estabilidade dos ecossistemas, a segurança alimentar e a saúde humana.",
+      "links": [
+        "https://www.wwf.org.br/natureza_brasileira/problemas_brasileiros/biodiversidade_brasileira/",
+        "https://www.greenpeace.org/brasil/blog/por-que-a-biodiversidade-e-importante-para-o-planeta/"
+      ]
     },
-    "spread_possibility": [
-      1,
-      3
-    ]
-  },
-  {
-    "id": 5,
-    "name": "Inundações",
-    "description": {
-      "title": "Aumento do nível de água",
-      "body": "Aumento do nível de rios ou acúmulo de água que cobre grandes áreas.",
-      "links": []
+    "predict_description": {
+      "title": "Causas e consequências da perda de biodiversidade",
+      "body": "A perda de biodiversidade é causada por fatores como desmatamento, poluição, mudanças climáticas e degradação do solo. Esses fenômenos comprometem a estabilidade dos ecossistemas, a segurança alimentar e a saúde humana. A perda de biodiversidade pode levar à extinção de espécies, desequilíbrio ecológico, redução da produtividade agrícola e aumento de doenças zoonóticas.",
+      "links": [
+        "https://www.wwf.org.br/natureza_brasileira/problemas_brasileiros/biodiversidade_brasileira/",
+        "https://www.greenpeace.org/brasil/blog/por-que-a-biodiversidade-e-importante-para-o-planeta/"
+      ]
     },
-    "post_possible": {
-      "id": 6,
-      "possibility": 85
-    },
-    "spread_possibility": [
-      0,
-      1
-    ]
-  },
-  {
-    "id": 6,
-    "name": "Desequilíbrio na fauna",
-    "description": {
-      "title": "",
-      "body": "",
-      "links": []
-    },
-    "post_possible": {
-      "id": 7,
-      "possibility": 50
-    },
-    "spread_possibility": [
-      1,
-      1
-    ]
-  },
-  {
-    "id": 7,
-    "name": "Desequilíbrio na flora",
-    "description": {
-      "title": "",
-      "body": "Acúmulo de água em áreas urbanas ou rurais, geralmente por drenagem insuficiente.",
-      "links": []
-    },
-    "post_possible": {
-      "id": 1,
-      "possibility": 50
-    },
-    "spread_possibility": [
-      0,
-      1
-    ]
+    "spread_possibility": [0, 3]
   }
 ]
