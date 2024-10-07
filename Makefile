@@ -8,11 +8,9 @@ build-cache:
 	@docker compose -f $(DOCKERFILE) build
 
 up:
-	@make echo-system
 	@docker compose -f $(DOCKERFILE) up -d
 
 watch:
-	@make echo-system
 	@docker compose -f $(DOCKERFILE) up
 
 down:
