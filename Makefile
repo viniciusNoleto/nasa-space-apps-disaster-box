@@ -48,10 +48,6 @@ b ?=
 npm-install:
 	@make exec a=vestimentor-web-app c="npm install $(b)"
 
-m :=
-module:
-	@bash .config/scripts/create_module.sh $(m)
-
 update:
 	@make npm-install
 	@make npm-build
