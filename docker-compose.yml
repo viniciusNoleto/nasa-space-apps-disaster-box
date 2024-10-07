@@ -1,0 +1,33 @@
+services:
+  nasa-space-apps-disaster-box-app:
+    container_name: nasa-space-apps-disaster-box-app
+    user: node
+    restart: unless-stopped
+    tty: true
+    build:
+      dockerfile: ./.config/docker/node/Dockerfile
+    volumes:
+      - ./:/app/
+    networks:
+      - nasa-space-apps-disaster-box-network
+  nasa-space-apps-disaster-box-server:
+    container_name: nasa-space-apps-disaster-box-server
+    restart: unless-stopped
+    tty: true
+    build:
+      dockerfile: ./.config/docker/nginx/Dockerfile
+    ports:
+      - 15:80
+    volumes:
+      - ./.config/docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./.config/docker/nginx/conf/route.conf:/etc/nginx/conf.d/route.conf
+      - ./.config/docker/nginx/letsencrypt/:/data/letsencrypt/
+      - /etc/letsencrypt/:/etc/letsencrypt/
+    networks:
+      - nasa-space-apps-disaster-box-network
+    depends_on:
+      - nasa-space-apps-disaster-box-app
+networks:
+  nasa-space-apps-disaster-box-network:
+    name: nasa-space-apps-disaster-box-network
+    driver: bridge

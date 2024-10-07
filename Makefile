@@ -1,14 +1,6 @@
 include .env
 
-DOCKERFILE := docker-compose.${APP_ENV}.yml
-
-f :=
-art:
-	@cat .config/scripts/arts/${f}.txt
-	@echo
-
-echo-system:
-	@make art f=system
+DOCKERFILE := docker-compose.yml
 
 build:
 	@docker compose -f $(DOCKERFILE) build --no-cache
@@ -55,12 +47,6 @@ npm-build:
 b ?=
 npm-install:
 	@make exec a=vestimentor-web-app c="npm install $(b)"
-
-lint:
-	@make exec a=vestimentor-web-app c="npm run lint"
-
-in:
-	@bash .config/scripts/in.sh
 
 m :=
 module:
