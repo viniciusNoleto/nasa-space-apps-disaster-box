@@ -1,4 +1,3 @@
-include .env
 
 DOCKERFILE := docker-compose.yml
 
@@ -28,10 +27,10 @@ logs:
 	@docker logs -f $(a)
 
 logs-app:
-	@make logs a=nasa-space-apps-disaster-box-web-app
+	@make logs a=nasa-space-apps-disaster-box-app
 
 logs-server:
-	@make logs a=nasa-space-apps-disaster-box-web-server
+	@make logs a=nasa-space-apps-disaster-box-server
 
 a :=
 c :=
@@ -39,14 +38,14 @@ exec:
 	@docker compose -f $(DOCKERFILE) exec $(a) $(c)
 
 npm-prune:
-	@make exec a=nasa-space-apps-disaster-box-web-app c="npm prune"
+	@make exec a=nasa-space-apps-disaster-box-app c="npm prune"
 
 npm-build:
-	@make exec a=nasa-space-apps-disaster-box-web-app c="npm run build"
+	@make exec a=nasa-space-apps-disaster-box-app c="npm run build"
 
 b ?=
 npm-install:
-	@make exec a=nasa-space-apps-disaster-box-web-app c="npm install $(b)"
+	@make exec a=nasa-space-apps-disaster-box-app c="npm install $(b)"
 
 update:
 	@make npm-install
